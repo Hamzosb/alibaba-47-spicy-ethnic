@@ -8,7 +8,9 @@
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
   </head>
   <body>
-    <!-- Decap CMS bootstrap. Loads from CDN; config at /admin/config.yml. -->
-    <script src="https://unpkg.com/decap-cms@^3.1.10/dist/decap-cms.js"></script>
+    <!-- Decap CMS bootstrap. Pinned to a specific version to avoid the
+         unpkg redirect dance + transient 503s when caret-resolution races
+         in the browser. Bump intentionally; do not auto-track latest. -->
+    <script src="https://unpkg.com/decap-cms@3.12.2/dist/decap-cms.js"></script>
   </body>
 </html>
