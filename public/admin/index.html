@@ -9,20 +9,29 @@
   </head>
   <body>
     <!--
-      OAuth fragment handler. Runs BEFORE Decap loads. If the OAuth proxy
-      fell back to a URL-fragment redirect (because window.opener.postMessage
-      didn't reach Decap), the fragment carries the access token. We write it
-      into Decap's localStorage entry so Decap auto-logs-in on load.
+      OAuth fragment handler. Runs BEFORE Decap loads.
 
-      Two key names because Decap renamed itself from Netlify CMS:
-      - decap-cms-user (current)
-      - netlify-cms-user (legacy compat for older Decap builds)
+      Two ways the OAuth flow ends up here:
+      1. Original tab — user clicks Login → popup completes OAuth → popup
+         posts message back to this window (the opener). Decap handles it
+         directly; this script doesn't fire.
+      2. Popup tab — postMessage path failed (cross-origin opener isolated)
+         so the proxy's /api/callback redirected the popup to this URL with
+         the token in a fragment. We're now inside the popup, on the same
+         origin as the admin route. Steps:
+           a. Write the token to localStorage (Decap's auth source).
+           b. If we're a popup with an opener still open, reload the opener
+              (same-origin, so allowed) — it will auto-login from the shared
+              localStorage on reload — then close ourselves.
+           c. If standalone (no opener), just clear the fragment; Decap
+              auto-logs-in in this tab.
     -->
     <script>
       (function () {
         var hash = window.location.hash || '';
         var tokenMatch = hash.match(/[#&]decap_token=([^&]+)/);
         var errorMatch = hash.match(/[#&]decap_oauth_error=([^&]+)/);
+
         if (tokenMatch) {
           var token = decodeURIComponent(tokenMatch[1]);
           var user = { token: token, backendName: 'github' };
@@ -30,10 +39,27 @@
             localStorage.setItem('decap-cms-user', JSON.stringify(user));
             localStorage.setItem('netlify-cms-user', JSON.stringify(user));
           } catch (_) {}
-          // Strip the token from the URL so it doesn't sit in browser history.
+
+          // If we're a popup whose opener is still alive AND same-origin,
+          // hand off to the opener and close ourselves.
+          var openerOk = false;
+          try {
+            openerOk = !!(window.opener && !window.opener.closed
+                          && window.opener.location && window.opener.location.origin === window.location.origin);
+          } catch (_) { openerOk = false; }
+
+          if (openerOk) {
+            try { window.opener.location.reload(); } catch (_) {}
+            // Give the reload a tick before closing this popup.
+            setTimeout(function () { try { window.close(); } catch (_) {} }, 200);
+            // Don't load Decap in this popup; we're closing.
+            document.write('<p style="font-family:system-ui;margin:2rem">Logged in. You can close this window.</p>');
+            return;
+          }
+
+          // Standalone mode: clean the URL; Decap will auto-login below.
           history.replaceState(null, '', window.location.pathname);
         } else if (errorMatch) {
-          // Surface the OAuth error to the user before Decap obscures it.
           var msg = decodeURIComponent(errorMatch[1]);
           document.addEventListener('DOMContentLoaded', function () {
             var el = document.createElement('div');
