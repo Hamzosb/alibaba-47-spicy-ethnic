@@ -1,0 +1,315 @@
+# Decap CMS configuration — per-lead.
+# This file is templated by pipeline3_owner_handoff/tools/add_cms.py.
+# Substitutions: Hamzosb, alibaba-47-spicy-ethnic, Ov23lippsBM3RL1DTqbH, Alibaba 47, Inh. A. Dündar.
+#
+# ARCHITECTURE (Path A, locked 2026-05-06 v3.1):
+# Two collections —
+#   1. "Site facts"  → src/data/content.json    (non-translatable: business name,
+#                                                 phone, address, hours data, photo
+#                                                 URLs, prices, lat/lng)
+#   2. "Page text"   → src/i18n/{de,fr,en}.json (all translatable copy: headlines,
+#                                                 menu items, FAQ, button labels,
+#                                                 day names, footer, etc.)
+#
+# Owner workflow: visit /admin → Login with GitHub → see two collections in the
+# sidebar → "Site facts" for one-time business info edits, "Page text" with
+# DE/FR/EN tabs for copy edits in any of the three languages → Save → Decap
+# commits to GitHub → Vercel rebuilds + deploys ~30-60s later.
+
+backend:
+  name: github
+  repo: Hamzosb/alibaba-47-spicy-ethnic
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  app_id: Ov23lippsBM3RL1DTqbH
+
+# Local dev: run `npx decap-server` in the project root, then visit /admin
+# locally. Decap will use the local proxy instead of GitHub.
+local_backend: true
+
+# Where Decap-uploaded media lands in the repo + how it's referenced in src.
+media_folder: public/photos
+public_folder: /photos
+
+# Site display in the editor UI
+site_url: https://alibaba-47-spicy-ethnic.vercel.app
+display_url: https://alibaba-47-spicy-ethnic.vercel.app
+logo_url: https://alibaba-47-spicy-ethnic.vercel.app/favicon-180.png
+
+publish_mode: simple
+
+# YAML anchor: shared schema for all three language files. Each language
+# (de.json / fr.json / en.json) has the same nested key structure.
+_copy_fields: &copy_fields
+  - { label: "Common UI strings", name: common, widget: object, fields: [
+      { label: "Open now",            name: openNow,           widget: string, required: false },
+      { label: "Closed",              name: closed,            widget: string, required: false },
+      { label: "Closed (line)",       name: closedLine,        widget: string, required: false },
+      { label: "Until (closes-at)",   name: until,             widget: string, required: false },
+      { label: "Today",               name: today,             widget: string, required: false },
+      { label: "Call (verb)",         name: call,              widget: string, required: false },
+      { label: "Menu label",          name: menuLabel,         widget: string, required: false },
+      { label: "Hours label",         name: hoursLabel,        widget: string, required: false },
+      { label: "Questions label",     name: questionsLabel,    widget: string, required: false },
+      { label: "Walk-in",             name: walkin,            widget: string, required: false },
+      { label: "Take-away",           name: takeaway,          widget: string, required: false },
+      { label: "Preview badge",       name: previewBadge,      widget: string, required: false },
+      { label: "Skip-to-main link",   name: skipToMain,        widget: string, required: false },
+      { label: "Primary nav label",   name: primaryNavLabel,   widget: string, required: false },
+      { label: "Open menu (a11y)",    name: openMenuLabel,     widget: string, required: false },
+      { label: "Directions link",     name: directionsLink,    widget: string, required: false },
+      { label: "City",                name: city,              widget: string, required: false },
+      { label: "Language picker label", name: languageSelectLabel, widget: string, required: false },
+    ]}
+
+  - { label: "Day names", name: days, widget: object, fields: [
+      { label: "Monday",        name: mon,         widget: string, required: false },
+      { label: "Tuesday",       name: tue,         widget: string, required: false },
+      { label: "Wednesday",     name: wed,         widget: string, required: false },
+      { label: "Thursday",      name: thu,         widget: string, required: false },
+      { label: "Friday",        name: fri,         widget: string, required: false },
+      { label: "Saturday",      name: sat,         widget: string, required: false },
+      { label: "Sunday",        name: sun,         widget: string, required: false },
+      { label: "Closed (short)", name: closedShort, widget: string, required: false },
+    ]}
+
+  - { label: "Hero section", name: hero, widget: object, fields: [
+      { label: "Eyebrow (small caps above headline)", name: eyebrow,        widget: string, required: false },
+      { label: "Headline — text before italic part",  name: headlineBefore, widget: string, required: false },
+      { label: "Headline — italic / accent part",     name: headlineItalic, widget: string, required: false },
+      { label: "Headline — text after italic part",   name: headlineAfter,  widget: string, required: false },
+      { label: "Subhead (1–2 lines)",                 name: subhead,        widget: text,   required: false },
+      { label: "Primary button label",                name: ctaPrimary,     widget: string, required: false },
+      { label: "Primary button (a11y)",               name: ctaPrimaryAria, widget: string, required: false },
+      { label: "Secondary button label",              name: ctaSecondary,   widget: string, required: false },
+      { label: "Trust line label",                    name: trustLineLabel, widget: string, required: false },
+    ]}
+
+  - { label: "Menu", name: menu, widget: object, fields: [
+      { label: "Section title",   name: sectionTitle, widget: string, required: false },
+      { label: "Intro line",      name: intro,        widget: text,   required: false },
+      { label: "Sample notice",   name: sampleNotice, widget: text,   required: false, hint: "Reminds visitors this is sample content" },
+      { label: "Footnote",        name: footnote,     widget: text,   required: false },
+      {
+        label: "Categories", name: categories, widget: list, required: false,
+        hint: "Order, prices, and photos are set in Site facts. Edit titles and dish copy here.",
+        fields: [
+          { label: "Title",                       name: title,    widget: string, required: false },
+          { label: "Subtitle / romanization",     name: subtitle, widget: string, required: false },
+          { label: "Tag (e.g. \"01 · Vom Spiess\")", name: tag,    widget: string, required: false },
+          { label: "Intro paragraph",             name: intro,    widget: text,   required: false },
+          { label: "Photo alt text",              name: photoAlt, widget: string, required: false },
+          {
+            label: "Items",
+            name: items,
+            widget: list,
+            required: false,
+            hint: "Per-theme shape varies — Decap shows all fields; leave blank what doesn't apply. Theme 01 (street_counter) only uses 'name' (and maybe 'price'). Theme 07 (spicy_ethnic) uses the full set including heat/extraHot/photo.",
+            fields: [
+              { label: "Name",                                    name: name,        widget: string,  required: false },
+              { label: "Subtitle / romanization",                 name: subtitle,    widget: string,  required: false },
+              { label: "Description",                             name: description, widget: text,    required: false },
+              { label: "Price (display string, e.g. \"CHF 11\")", name: price,       widget: string,  required: false },
+              { label: "Heat level (0–3, spicy themes only)",     name: heat,        widget: number,  required: false, value_type: "int", min: 0, max: 3, default: 0 },
+              { label: "Extra-hot dot (spicy themes only)",       name: extraHot,    widget: boolean, required: false, default: false },
+              { label: "Badge key", name: badgeKey, widget: select, required: false, default: "",
+                options: ["", "vegetarian", "vegan", "spicy", "servesTwo", "houseFavourite", "boneIn", "glutenFree"],
+                hint: "Picks the localized label from dishes.badges.<key> in content.json." },
+              { label: "Photo URL",                               name: photoUrl,    widget: image,   required: false },
+              { label: "Photo alt text",                          name: photoAlt,    widget: string,  required: false },
+            ]
+          },
+        ]
+      },
+    ]}
+
+  - { label: "Why choose us", name: whyChooseUs, widget: object, required: false, fields: [
+      { label: "Section title", name: sectionTitle, widget: string, required: false },
+      {
+        label: "Reasons", name: items, widget: list, required: false,
+        fields: [
+          { label: "Headline", name: label, widget: string, required: false },
+          { label: "Body",     name: body,  widget: text,   required: false },
+        ]
+      },
+    ]}
+
+  - { label: "Reviews", name: reviews, widget: object, required: false, fields: [
+      { label: "Section title", name: sectionTitle, widget: string, required: false },
+      {
+        label: "Quotes (3 max)", name: quotes, widget: list, max: 3, required: false,
+        fields: [
+          { label: "Quote text",   name: text,        widget: text,   required: false },
+          { label: "Attribution",  name: attribution, widget: string, required: false, hint: "e.g. 'Google reviewer · 5★'" },
+        ]
+      },
+      { label: "Trust line below quotes", name: summaryLine,   widget: string, required: false },
+      { label: "Read all link label",     name: readAllLabel,  widget: string, required: false },
+    ]}
+
+  - { label: "Hours section labels", name: hours, widget: object, required: false,
+      hint: "Edit hour DISPLAY strings here. To change open/close logic or actual times, edit Site facts → opening hours.",
+      fields: [
+        { label: "Section title",     name: sectionTitle,   widget: string, required: false },
+        { label: "Hours heading",     name: hoursHeading,   widget: string, required: false },
+        { label: "Late-hours label",  name: lateNightLabel, widget: string, required: false },
+        { label: "Today label",       name: todayLabel,     widget: string, required: false },
+        { label: "Location heading",  name: locationHeading, widget: string, required: false },
+        { label: "Directions label",  name: directionsLabel, widget: string, required: false },
+        { label: "Map title (a11y)",  name: mapTitle,       widget: string, required: false },
+      ]}
+
+  - { label: "FAQ", name: faq, widget: object, required: false, fields: [
+      { label: "Section title", name: sectionTitle, widget: string, required: false },
+      {
+        label: "Questions", name: items, widget: list, required: false,
+        fields: [
+          { label: "Question", name: q, widget: string, required: false },
+          { label: "Answer",   name: a, widget: text,   required: false },
+        ]
+      },
+    ]}
+
+  - { label: "Final CTA", name: finalCta, widget: object, required: false, fields: [
+      { label: "Heading",                 name: heading,      widget: string, required: false },
+      { label: "Body",                    name: body,         widget: text,   required: false },
+      { label: "Primary button label",    name: ctaPrimary,   widget: string, required: false },
+      { label: "Secondary button label",  name: ctaSecondary, widget: string, required: false },
+      { label: "WhatsApp button label",   name: ctaWhatsapp,  widget: string, required: false },
+    ]}
+
+  - { label: "Footer", name: footer, widget: object, required: false, fields: [
+      { label: "Address column heading", name: addressLabel,        widget: string, required: false },
+      { label: "Phone column heading",   name: phoneLabel,          widget: string, required: false },
+      { label: "Hours column heading",   name: hoursLabel,          widget: string, required: false },
+      { label: "Social column heading",  name: socialLabel,         widget: string, required: false },
+      { label: "Google reviews label",   name: googleReviewsLabel,  widget: string, required: false },
+      { label: "Facebook label",         name: facebookLabel,       widget: string, required: false },
+      { label: "Instagram label",        name: instagramLabel,      widget: string, required: false },
+      { label: "Concept-preview notice (delete when officially launched)", name: conceptNotice, widget: text, required: false },
+      { label: "Bottom band",            name: bottomBand,          widget: string, required: false },
+    ]}
+
+  - { label: "Dish meta labels", name: dish, widget: object, required: false, fields: [
+      { label: "Heat (theme 07 spice-dot label)", name: heat, widget: string, required: false },
+    ]}
+
+  - { label: "Hero image alt text", name: heroImageAlt, widget: string, required: false }
+
+collections:
+  # ──────────────────────────────────────────────────────────────────────
+  # Collection 1 — Site facts (non-translatable)
+  # Single content.json file holds business identity, contact info, hours data,
+  # photo URLs, prices, location coords. Edit once; doesn't change with language.
+  # ──────────────────────────────────────────────────────────────────────
+  - name: facts
+    label: "Site facts (non-translatable)"
+    description: "Business name, phone, address, opening hours, photo URLs, prices. These don't change with language — edit once."
+    files:
+      - file: src/data/content.json
+        label: "Alibaba 47, Inh. A. Dündar — facts"
+        name: main
+        fields:
+          - { label: "Business", name: business, widget: object, fields: [
+              { label: "Display name",         name: name,            widget: string },
+              { label: "Short name",           name: shortName,       widget: string },
+              { label: "Cuisine type",         name: type,            widget: string, required: false },
+              { label: "Phone (display, DE)",  name: phoneDisplayDe,  widget: string, required: false },
+              { label: "Phone (display, FR)",  name: phoneDisplayFr,  widget: string, required: false },
+              { label: "Phone (display, EN)",  name: phoneDisplayEn,  widget: string, required: false },
+              { label: "Phone (intl, tel:)",   name: phoneTel,        widget: string, hint: "+41XXXXXXXXX format" },
+              { label: "Phone (national)",     name: phoneNational,   widget: string, required: false },
+              { label: "WhatsApp link",        name: whatsappLink,    widget: string, required: false },
+              { label: "Hero image URL",       name: heroImageUrl,    widget: image,  required: false },
+              { label: "Google reviews URL",   name: googleReviewsUrl, widget: string, required: false },
+              { label: "Google Maps URL",      name: googleMapsUrl,   widget: string, required: false },
+              { label: "Facebook URL",         name: facebookUrl,     widget: string, required: false },
+              { label: "Instagram URL",        name: instagramUrl,    widget: string, required: false },
+              { label: "Rating",               name: rating,          widget: string, required: false, hint: "Leave blank to suppress (sub-3.5★ leads)" },
+              { label: "Review count",         name: reviewCount,     widget: string, required: false },
+              { label: "Address", name: address, widget: object, fields: [
+                  { label: "Street",        name: street,     widget: string, required: false },
+                  { label: "Postal code",   name: postalCode, widget: string, required: false },
+                  { label: "City",          name: city,       widget: string, required: false },
+                  { label: "Country",       name: country,    widget: string, required: false },
+                ]},
+              { label: "Location", name: location, widget: object, fields: [
+                  { label: "Latitude",  name: lat, widget: number, value_type: float, required: false },
+                  { label: "Longitude", name: lng, widget: number, value_type: float, required: false },
+                ]},
+              {
+                label: "Opening hours (per day)",
+                name: openingHoursCompact,
+                widget: list,
+                required: false,
+                fields: [
+                  { label: "Day code (Mon/Tue/...)", name: day,         widget: string },
+                  { label: "Hours (e.g. 8:00 AM – 8:00 PM, or 'Closed')", name: hours, widget: string },
+                  { label: "Late-night flag",        name: isLateNight, widget: boolean, required: false, default: false },
+                ]
+              },
+            ]}
+
+          - {
+              label: "Menu — facts (prices + photos per category)",
+              name: menu,
+              widget: object,
+              required: false,
+              hint: "Per-category prices and photo URLs. Titles and dish copy live in Page text.",
+              fields: [
+                {
+                  label: "Categories", name: categories, widget: list, required: false,
+                  fields: [
+                    { label: "Price range",  name: priceRange, widget: string, required: false, hint: "e.g. CHF 9–14" },
+                    { label: "Photo URL",    name: photoUrl,   widget: image,  required: false },
+                    {
+                      label: "Dishes — facts (heat per dish)",
+                      name: dishes,
+                      widget: list,
+                      required: false,
+                      hint: "Heat = 0 (mild) … 3 (very spicy). Used by theme 07 spice-dot meta row.",
+                      fields: [
+                        { label: "Heat (0–3)", name: heat, widget: number, value_type: int, required: false, default: 0 },
+                      ]
+                    },
+                  ]
+                },
+              ]
+            }
+
+          - { label: "Reviews — facts (quote attribution + star)", name: reviews, widget: object, required: false, fields: [
+              {
+                label: "Quote attributions",
+                name: quotes,
+                widget: list,
+                max: 3,
+                required: false,
+                hint: "Attribution per quote. Quote text lives in Page text per language. Empty array suppresses the section (sub-3.5★ leads).",
+                fields: [
+                  { label: "Star rating (1–5)", name: rating,      widget: number, value_type: int, required: false },
+                  { label: "Source",            name: source,      widget: string, required: false, default: "Google" },
+                ]
+              },
+            ]}
+
+  # ──────────────────────────────────────────────────────────────────────
+  # Collection 2 — Page text (translatable)
+  # Three files, one per language. Same schema across all three (YAML anchor).
+  # ──────────────────────────────────────────────────────────────────────
+  - name: copy
+    label: "Page text (per language)"
+    description: "All visible copy: headlines, menu titles, FAQ, button labels. Three files = three languages. Edit each tab to change that language."
+    files:
+      - file: src/i18n/de.json
+        label: "🇩🇪 Deutsch (default)"
+        name: de
+        fields: *copy_fields
+      - file: src/i18n/fr.json
+        label: "🇫🇷 Français"
+        name: fr
+        fields: *copy_fields
+      - file: src/i18n/en.json
+        label: "🇬🇧 English"
+        name: en
+        fields: *copy_fields

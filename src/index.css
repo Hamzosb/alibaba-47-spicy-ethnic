@@ -1,0 +1,21 @@
+/* Lifted from the approved Claude Design mockup at
+ * _mockup/handoff/theme-07-spicy-ethnic/project/index.html.
+ * Verbatim — DO NOT rewrite class-by-class. Visual parity with the mockup
+ * is the contract here; CSS evolves only when the mockup itself changes.
+ * @import must come BEFORE @tailwind / other rules per CSS spec. */
+@import './styles/theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Master rule §2 — sections render visible by default. No scroll-reveal
+ * gating via IntersectionObserver + opacity:0. */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
