@@ -1,3 +1,207 @@
 {
-  "_note": "DE strings live in src/data/content.json (Alibaba 47 source-of-truth). i18next loads content.json as the DE resources at init time via src/i18n.js. Do not duplicate strings here."
+  "common": {
+    "openNow": "Geöffnet",
+    "closed": "Geschlossen",
+    "closedLine": "Heute geschlossen",
+    "until": "Bis",
+    "today": "Heute",
+    "call": "Anrufen",
+    "menuLabel": "Speisekarte",
+    "hoursLabel": "Öffnung & Anfahrt",
+    "questionsLabel": "Fragen",
+    "walkin": "Vor Ort",
+    "takeaway": "Take-away",
+    "previewBadge": "Vorschau",
+    "skipToMain": "Zum Hauptinhalt springen",
+    "primaryNavLabel": "Hauptnavigation",
+    "openMenuLabel": "Menü öffnen",
+    "directionsLink": "Wegbeschreibung",
+    "city": "Biel/Bienne",
+    "languageSelectLabel": "Sprache wählen"
+  },
+
+  "days": {
+    "mon": "Montag",
+    "tue": "Dienstag",
+    "wed": "Mittwoch",
+    "thu": "Donnerstag",
+    "fri": "Freitag",
+    "sat": "Samstag",
+    "sun": "Sonntag",
+    "closedShort": "Geschlossen"
+  },
+
+  "hero": {
+    "eyebrow": "Anatolische Strassenküche · Walk-in & Take-away",
+    "headlineBefore": "Eine Theke für ",
+    "headlineItalic": "Würze,",
+    "headlineAfter": " Rauch & warmes Brot.",
+    "subhead": "Von Hand geschnittener Döner, auf Holzkohle gegrillte Spiesse und Brot direkt vom Heiss — Mo bis Fr an einer Ecke von Biel/Bienne. Geöffnet 08:00 bis 20:00.",
+    "ctaPrimary": "Anrufen · 032 341 32 41",
+    "ctaPrimaryAria": "Alibaba 47 für eine Bestellung anrufen",
+    "ctaSecondary": "Zur Speisekarte",
+    "trustLineLabel": "Mo–Fr 08:00–20:00 · Vegetarische Optionen"
+  },
+
+  "menu": {
+    "sectionTitle": "Frisch zubereitet, vom Spiess.",
+    "intro": "Drei Stationen in der Küche — der Spiess vorne, der Holzkohlegrill hinten und die kalte Mezze-Theke zum Teilen. Die meisten Teller verlassen die Theke in unter zehn Minuten.",
+    "sampleNotice": "Vorschau-Speisekarte. Aktuelle Gerichte, Preise und saisonale Posten an der Theke oder per Telefon bestätigen (032 341 32 41).",
+    "footnote": "",
+    "categories": [
+      {
+        "title": "Vom Spiess",
+        "subtitle": "Döner · Dürüm",
+        "tag": "01 · Vom Spiess",
+        "intro": "Das Herzstück der Küche. Der Spiess dreht sich von früh bis spät, das Fleisch wird auf Bestellung geschnitten, das Brot wenige Sekunden vor dem Servieren erwärmt.",
+        "photoAlt": "Vertikaler Kebabspiess wird abgeschnitten",
+        "items": [
+          {
+            "name": "Döner im Brot",
+            "subtitle": "Yufka · gefaltet",
+            "description": "Geschnittener Kebab in gefaltetem Yufka mit Salat, Zwiebeln und Joghurt-Knoblauch-Sauce.",
+            "price": "CHF 11",
+            "heat": 1,
+            "extraHot": false,
+            "badgeKey": "",
+            "photoUrl": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=700&q=85",
+            "photoAlt": "Döner im Brot mit Pommes"
+          },
+          {
+            "name": "Dürüm",
+            "subtitle": "eng gerollt",
+            "description": "Eng gerollter Wrap — Kebab, Salat, Paste, Zwiebeln.",
+            "price": "CHF 13",
+            "heat": 1,
+            "extraHot": false,
+            "badgeKey": "",
+            "photoUrl": "https://images.unsplash.com/photo-1542528180-a1208c5169a5?w=700&q=85",
+            "photoAlt": "Türkischer Dürüm-Wrap"
+          }
+        ]
+      },
+      {
+        "title": "Vom Grill",
+        "subtitle": "Şiş · Adana · Karışık",
+        "tag": "02 · Vom Grill",
+        "intro": "Spiesse über glühender Holzkohle auf Bestellung gegart. Serviert mit Reis oder Bulgur, Salat und einem dünnen türkischen Fladenbrot.",
+        "photoAlt": "Tagesgrill mit Spiessen",
+        "items": [
+          {
+            "name": "Adana-Spiess",
+            "subtitle": "handgehacktes Lamm",
+            "description": "Handgehacktes, gewürztes Lamm · auf Holzkohle gegrillt · mit Reis.",
+            "price": "CHF 19",
+            "heat": 3,
+            "extraHot": true,
+            "badgeKey": "spicy",
+            "photoUrl": "https://images.unsplash.com/photo-1561651823-34feb02250e4?w=700&q=85",
+            "photoAlt": "Adana-Spiesse auf Holzkohle"
+          },
+          {
+            "name": "Karışık ızgara",
+            "subtitle": "gemischter Grill",
+            "description": "Gemischter Grill — Hähnchen, Lamm, Paprika, drei Saucen. Für zwei Personen.",
+            "price": "CHF 32",
+            "heat": 2,
+            "extraHot": false,
+            "badgeKey": "servesTwo",
+            "photoUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=85",
+            "photoAlt": "Gemischter Grillteller"
+          }
+        ]
+      },
+      {
+        "title": "Mezze & Beilagen",
+        "subtitle": "Hummus · salatalar · cacık",
+        "tag": "03 · Mezze",
+        "intro": "Kalte Dips, Beilagensalate, handgeschnittene Pommes. Zum Teilen am Tisch oder als Ergänzung zur Take-away-Box. Standardmässig vegetarisch.",
+        "photoAlt": "Hummus mit Pita und Petersilie",
+        "items": [
+          {
+            "name": "Hummus & Pita",
+            "subtitle": "Kichererbse & Tahin",
+            "description": "Kichererbsenpüree mit Tahin und Zitrone, warme Pita-Streifen, Olivenöl.",
+            "price": "CHF 9",
+            "heat": 0,
+            "extraHot": false,
+            "badgeKey": "vegetarian",
+            "photoUrl": "https://images.pexels.com/photos/1618898/pexels-photo-1618898.jpeg?auto=compress&cs=tinysrgb&w=700",
+            "photoAlt": "Hummus mit Pita"
+          },
+          {
+            "name": "Gartensalat",
+            "subtitle": "vegan, wie er ist",
+            "description": "Tomate, Gurke, Petersilie, rote Zwiebel, Zitrone — vegan, wie er ist.",
+            "price": "CHF 6",
+            "heat": 0,
+            "extraHot": false,
+            "badgeKey": "vegan",
+            "photoUrl": "https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=700",
+            "photoAlt": "Gartensalat mit Tomate, Gurke, Feta, Oliven"
+          }
+        ]
+      }
+    ]
+  },
+
+  "whyChooseUs": {
+    "sectionTitle": "",
+    "items": []
+  },
+
+  "reviews": {
+    "sectionTitle": "Was Gäste sagen.",
+    "quotes": [],
+    "summaryLine": "",
+    "readAllLabel": "Auf Google ansehen"
+  },
+
+  "hours": {
+    "sectionTitle": "Öffnungszeiten & Standort.",
+    "hoursHeading": "Küchenzeiten",
+    "lateNightLabel": "",
+    "todayLabel": "Heute",
+    "locationHeading": "Wo wir sind",
+    "directionsLabel": "Wegbeschreibung",
+    "mapTitle": "Karte: Alibaba 47, General-Dufour-Strasse 47, 2502 Biel"
+  },
+
+  "faq": {
+    "sectionTitle": "Bevor Sie vorbeikommen.",
+    "items": [
+      { "q": "Wo genau befinden Sie sich?",                      "a": "General-Dufour-Strasse 47, 2502 Biel/Bienne. Zwei Gehminuten vom Bahnhof Biel entlang der General-Dufour-Strasse." },
+      { "q": "Nehmen Sie Reservierungen entgegen?",              "a": "Walk-in genügt für die Theke. Für grössere Gruppen am besten direkt unter 032 341 32 41 anrufen." },
+      { "q": "Kann ich telefonisch zur Abholung bestellen?",     "a": "Ja — rufen Sie unter 032 341 32 41 an, Ihre Bestellung wartet warm an der Theke." },
+      { "q": "Liefern Sie auch?",                                 "a": "Bitte direkt unter 032 341 32 41 anfragen, ob eine Lieferung im Quartier möglich ist." },
+      { "q": "Welche Zahlungsmittel akzeptieren Sie?",           "a": "Die Zahlungsmöglichkeiten können variieren — am besten vorab unter 032 341 32 41 anrufen, um TWINT oder Kartenzahlung zu bestätigen." },
+      { "q": "Welche Sprachen sprechen Sie an der Theke?",      "a": "Deutsch und Türkisch werden gesprochen; Französisch und Englisch bitte vor Ort fragen." }
+    ]
+  },
+
+  "finalCta": {
+    "heading": "",
+    "body": "",
+    "ctaPrimary": "",
+    "ctaSecondary": "",
+    "ctaWhatsapp": ""
+  },
+
+  "footer": {
+    "addressLabel": "Besuch",
+    "phoneLabel": "Telefon",
+    "hoursLabel": "Öffnungszeiten",
+    "socialLabel": "Folgen",
+    "googleReviewsLabel": "Auf Google ansehen",
+    "facebookLabel": "Facebook",
+    "instagramLabel": "Instagram",
+    "conceptNotice": "Website-Vorschau für Alibaba 47 — noch nicht vom Inhaber freigegeben. Gezeigte Fotos sind Beispiele.",
+    "bottomBand": "Alibaba 47, Inh. A. Dündar · General-Dufour-Strasse 47 · 2502 Biel"
+  },
+
+  "dish": {
+    "heat": "Schärfe"
+  },
+
+  "heroImageAlt": "Hähnchen-Kebabspiesse auf Holzkohle mit Rauch"
 }

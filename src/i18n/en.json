@@ -1,188 +1,130 @@
 {
   "common": {
     "openNow": "Open now",
+    "closed": "Closed",
+    "closedLine": "Closed today",
     "until": "Until",
-    "closedShort": "Closed",
-    "languageSelectLabel": "Choose language",
-    "phoneOrderLabel": "Order by phone",
-    "call": "Call"
+    "today": "Today",
+    "call": "Call",
+    "menuLabel": "Menu",
+    "hoursLabel": "Hours & location",
+    "questionsLabel": "Questions",
+    "walkin": "Walk-in",
+    "takeaway": "Takeaway",
+    "previewBadge": "Preview",
+    "skipToMain": "Skip to main content",
+    "primaryNavLabel": "Primary navigation",
+    "openMenuLabel": "Open menu",
+    "directionsLink": "Get directions",
+    "city": "Biel/Bienne",
+    "languageSelectLabel": "Choose language"
   },
+
   "days": {
-    "monday": "Monday",
-    "tuesday": "Tuesday",
-    "wednesday": "Wednesday",
-    "thursday": "Thursday",
-    "friday": "Friday",
-    "saturday": "Saturday",
-    "sunday": "Sunday"
+    "mon": "Monday", "tue": "Tuesday", "wed": "Wednesday", "thu": "Thursday",
+    "fri": "Friday", "sat": "Saturday", "sun": "Sunday", "closedShort": "Closed"
   },
-  "statusStrip": {
-    "openTime": "20:00",
-    "services": "<b>Walk-in</b> · Takeaway"
-  },
-  "header": {
-    "ctaLabel": "Call · +41 32 341 32 41"
-  },
-  "headerNav": {
-    "menu": "Menu",
-    "hoursAndLocation": "Hours & location",
-    "questions": "Questions"
-  },
+
   "hero": {
     "eyebrow": "Anatolian street food · Walk-in & takeaway",
     "headlineBefore": "A counter set for ",
     "headlineItalic": "spice,",
     "headlineAfter": " smoke & warm bread.",
-    "subhead": "Hand-shaved döner, charcoal-grilled skewers and bread straight off the heat — Mon to Fri on a corner of Biel/Bienne. Open 08:00 to 20:00.",
-    "ctaPrimary": "Call · +41 32 341 32 41",
+    "subhead": "Hand-shaved döner, charcoal-grilled skewers, and bread off the heat — Mon to Fri on a working corner of Biel/Bienne. Open 08:00 to 20:00.",
+    "ctaPrimary": "Call · 032 341 32 41",
+    "ctaPrimaryAria": "Call Alibaba 47 to order",
     "ctaSecondary": "View the menu",
-    "trustNeighborhood": "Biel/Bienne",
-    "trustOpenDays": "Mon–Fri 08:00–20:00",
-    "trustVeg": "Vegetarian options",
-    "imageAlt": "Chicken kebab skewers on charcoal",
-    "caption": "From the grill"
+    "trustLineLabel": "Mon–Fri 08:00–20:00 · Vegetarian options"
   },
+
   "menu": {
-    "eyebrow": "Menu",
     "sectionTitle": "Cooked to order, off the spit.",
-    "titleBefore": "Cooked to order, ",
-    "titleItalic": "off the spit.",
-    "intro": "Three stations in the kitchen — the spit at the front, the charcoal grill behind it, and the cold mezze counter to share. Most plates leave the counter in under ten minutes.",
-    "sampleNoticeLabel": "Sample preview menu",
-    "sampleNoticeText": "Dishes shown represent the kitchen's typical offerings. Daily specials, prices and seasonal items confirmed at the counter or by phone (032 341 32 41)."
+    "intro": "Three working stations — the spit at the front, the charcoal grill behind, and the cold mezze counter for sharing. Most plates leave the counter in under ten minutes.",
+    "sampleNotice": "Sample menu. Actual dishes, prices, and seasonal items are confirmed at the counter or by phone (032 341 32 41).",
+    "footnote": "",
+    "categories": [
+      {
+        "title": "From the spit",
+        "subtitle": "Döner · Dürüm",
+        "tag": "01 · From the spit",
+        "intro": "The kitchen's centre of gravity. Spit turns from open to close, meat is cut to order, bread is warmed seconds before it leaves the counter.",
+        "photoAlt": "Vertical kebab spit being shaved",
+        "items": [
+          { "name": "Döner in bread",   "subtitle": "yufka · folded",      "description": "Shaved kebap in folded yufka with salad, onion, yogurt-garlic sauce.", "price": "CHF 11", "heat": 1, "extraHot": false, "badgeKey": "",      "photoUrl": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=700&q=85", "photoAlt": "Döner in bread with fries" },
+          { "name": "Dürüm",            "subtitle": "tightly rolled",      "description": "Tightly rolled wrap — kebap, salad, paste, onion.",                    "price": "CHF 13", "heat": 1, "extraHot": false, "badgeKey": "",      "photoUrl": "https://images.unsplash.com/photo-1542528180-a1208c5169a5?w=700&q=85", "photoAlt": "Turkish dürüm wrap" }
+        ]
+      },
+      {
+        "title": "From the grill",
+        "subtitle": "Şiş · Adana · Karışık",
+        "tag": "02 · From the grill",
+        "intro": "Skewers cooked over coals to order. Plated with rice or bulgur, salad, and a thin Turkish flatbread to mop the juices.",
+        "photoAlt": "Daily grill with skewers",
+        "items": [
+          { "name": "Adana skewer",     "subtitle": "hand-minced lamb",    "description": "Hand-minced spiced lamb · charcoal-grilled · with rice.",                "price": "CHF 19", "heat": 3, "extraHot": true,  "badgeKey": "spicy",     "photoUrl": "https://images.unsplash.com/photo-1561651823-34feb02250e4?w=700&q=85", "photoAlt": "Adana skewers on charcoal" },
+          { "name": "Karışık ızgara",   "subtitle": "mixed grill",         "description": "Mixed grill — chicken, lamb, peppers, three sauces. Serves two.",        "price": "CHF 32", "heat": 2, "extraHot": false, "badgeKey": "servesTwo", "photoUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=85", "photoAlt": "Mixed grill platter" }
+        ]
+      },
+      {
+        "title": "Mezze & sides",
+        "subtitle": "Hummus · salatalar · cacık",
+        "tag": "03 · Mezze",
+        "intro": "Cold dips, side salads, hand-cut fries. For sharing across the table or rounding out a takeaway box. Vegetarian by default.",
+        "photoAlt": "Hummus with pita and parsley",
+        "items": [
+          { "name": "Hummus & pita",    "subtitle": "chickpea & tahini",   "description": "Chickpea purée with tahini and lemon, warm pita strips, olive oil.",    "price": "CHF 9",  "heat": 0, "extraHot": false, "badgeKey": "vegetarian", "photoUrl": "https://images.pexels.com/photos/1618898/pexels-photo-1618898.jpeg?auto=compress&cs=tinysrgb&w=700", "photoAlt": "Hummus with pita" },
+          { "name": "Garden salad",     "subtitle": "vegan as it stands",  "description": "Tomato, cucumber, parsley, red onion, lemon — vegan as it stands.",    "price": "CHF 6",  "heat": 0, "extraHot": false, "badgeKey": "vegan",      "photoUrl": "https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=700", "photoAlt": "Garden salad" }
+        ]
+      }
+    ]
   },
-  "menuCategories": {
-    "kebabs": {
-      "title": "From the spit",
-      "subtitle": "Döner · Dürüm",
-      "intro": "The kitchen's centre of gravity. The spit turns from morning to evening, the meat is sliced to order, and the bread is warmed seconds before serving."
-    },
-    "grill": {
-      "title": "From the grill",
-      "subtitle": "Şiş · Adana · Karışık",
-      "intro": "Skewers cooked to order over glowing charcoal. Served with rice or bulgur, salad and a thin Turkish flatbread."
-    },
-    "mezze": {
-      "title": "Mezze & sides",
-      "subtitle": "Hummus · salatalar · cacık",
-      "intro": "Cold dips, side salads, hand-cut chips. Made for sharing at the table or topping up the takeaway box. Vegetarian by default."
-    }
-  },
-  "dishes": {
-    "heatLabel": "Heat",
-    "badges": {
-      "vegetarian": "Vegetarian",
-      "vegan": "Vegan",
-      "spicy": "Spicy",
-      "servesTwo": "Serves two",
-      "houseFavourite": "House favourite",
-      "boneIn": "Bone-in",
-      "glutenFree": "Gluten-free"
-    },
-    "doner": {
-      "name": "Döner in bread",
-      "subtitle": "Yufka · folded",
-      "description": "Sliced kebab in a folded yufka with salad, onion and yoghurt-garlic sauce."
-    },
-    "durum": {
-      "name": "Dürüm",
-      "subtitle": "tightly rolled",
-      "description": "Tightly rolled wrap — kebab, salad, paste, onion."
-    },
-    "adana": {
-      "name": "Adana skewer",
-      "subtitle": "hand-chopped lamb",
-      "description": "Hand-chopped, spiced lamb · grilled on charcoal · with rice."
-    },
-    "karisik": {
-      "name": "Karışık ızgara",
-      "subtitle": "mixed grill",
-      "description": "Mixed grill — chicken, lamb, peppers, three sauces. For two."
-    },
-    "hummus": {
-      "name": "Hummus & pita",
-      "subtitle": "chickpea & tahini",
-      "description": "Chickpea purée with tahini and lemon, warm pita strips, olive oil."
-    },
-    "salat": {
-      "name": "Garden salad",
-      "subtitle": "vegan as it stands",
-      "description": "Tomato, cucumber, parsley, red onion, lemon — vegan as it stands."
-    }
-  },
+
+  "whyChooseUs": { "sectionTitle": "", "items": [] },
+
   "reviews": {
-    "eyebrow": "Voices",
-    "sectionTitle": "What guests say.",
-    "titleBefore": "What guests ",
-    "titleItalic": "say.",
+    "sectionTitle": "What people say.",
+    "quotes": [],
     "summaryLine": "",
-    "summarySuffix": "reviews",
-    "readAllLabel": "See on Google"
+    "readAllLabel": "View on Google"
   },
+
   "hours": {
-    "eyebrow": "Visit",
     "sectionTitle": "Hours & location.",
-    "titleBefore": "Hours & ",
-    "titleItalic": "location.",
     "hoursHeading": "Kitchen hours",
-    "hoursSubheading": "Last order 19:30",
-    "kitchenHoursTitle": "Kitchen hours",
-    "kitchenHoursSub": "Last order 19:30",
+    "lateNightLabel": "",
     "todayLabel": "Today",
     "locationHeading": "Where we are",
     "directionsLabel": "Get directions",
-    "directions": "Get directions",
     "mapTitle": "Map: Alibaba 47, General-Dufour-Strasse 47, 2502 Biel"
   },
+
   "faq": {
-    "eyebrow": "Common questions",
     "sectionTitle": "Before you visit.",
-    "titleBefore": "Before you ",
-    "titleItalic": "visit."
+    "items": [
+      { "q": "Where exactly are you?",                       "a": "General-Dufour-Strasse 47, 2502 Biel/Bienne. Two minutes' walk from Bahnhof Biel along General-Dufour-Strasse." },
+      { "q": "Do you take reservations?",                    "a": "Walk-in is enough for the counter. For larger groups, it's quickest to call 032 341 32 41 directly." },
+      { "q": "Can I order by phone for pickup?",             "a": "Yes — call 032 341 32 41 and your order will wait warm at the counter." },
+      { "q": "Do you deliver?",                              "a": "Please call 032 341 32 41 directly to ask whether neighbourhood delivery is possible." },
+      { "q": "What payment methods do you accept?",          "a": "Payment options may vary — call 032 341 32 41 ahead to confirm TWINT or card before you arrive." },
+      { "q": "What languages do you speak at the counter?", "a": "German and Turkish are spoken; for French and English, please ask at the counter." }
+    ]
   },
-  "faqItems": {
-    "location": {
-      "q": "Where exactly are you?",
-      "a": "General-Dufour-Strasse 47, 2502 Biel/Bienne. Two minutes' walk from Bahnhof Biel along General-Dufour-Strasse."
-    },
-    "reservations": {
-      "q": "Do you take reservations?",
-      "a": "Walk-in is enough for the counter. For larger groups, please call directly on 032 341 32 41."
-    },
-    "phoneOrder": {
-      "q": "Can I order by phone for pickup?",
-      "a": "Yes — call 032 341 32 41 and your order will be waiting warm at the counter."
-    },
-    "delivery": {
-      "q": "Do you deliver?",
-      "a": "Please call 032 341 32 41 directly to ask if a neighbourhood delivery is possible."
-    },
-    "payment": {
-      "q": "Which payment methods do you accept?",
-      "a": "Payment options can vary — please call 032 341 32 41 in advance to confirm TWINT or card."
-    },
-    "languages": {
-      "q": "Which languages do you speak at the counter?",
-      "a": "German and Turkish are spoken; for French and English please ask in person."
-    }
-  },
+
+  "finalCta": { "heading": "", "body": "", "ctaPrimary": "", "ctaSecondary": "", "ctaWhatsapp": "" },
+
   "footer": {
-    "conceptNotice": "Website preview for Alibaba 47 — not yet approved by the owner. Sample photos shown.",
-    "bottomBand": "Alibaba 47, Inh. A. Dündar · General-Dufour-Strasse 47 · 2502 Biel",
-    "about": "Kebap, grill and mezze on a corner of Biel/Bienne — Mon to Fri, walk-in or call ahead.",
-    "aboutLine": "Kebap, grill and mezze on a corner of Biel/Bienne.",
-    "visitLabel": "Visit",
-    "menuLabel": "Menu",
-    "followLabel": "Follow",
-    "googleReviewsLabel": "See on Google",
+    "addressLabel": "Visit",
+    "phoneLabel": "Phone",
+    "hoursLabel": "Hours",
+    "socialLabel": "Follow",
+    "googleReviewsLabel": "View on Google",
     "facebookLabel": "Facebook",
     "instagramLabel": "Instagram",
-    "copyright": "© 2026 Alibaba 47, Inh. A. Dündar. All rights reserved.",
-    "conceptTag": "Website preview for Alibaba 47"
+    "conceptNotice": "Website preview for Alibaba 47 — not yet approved by the owner. Photos shown are samples.",
+    "bottomBand": "Alibaba 47, Inh. A. Dündar · General-Dufour-Strasse 47 · 2502 Biel"
   },
-  "footerMenu": {
-    "kebabs": "From the spit",
-    "grill": "From the grill",
-    "mezze": "Mezze & sides"
-  }
+
+  "dish": { "heat": "Heat" },
+
+  "heroImageAlt": "Charcoal-grilled chicken skewers with smoke"
 }

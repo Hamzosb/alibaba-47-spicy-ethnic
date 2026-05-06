@@ -1,188 +1,130 @@
 {
   "common": {
     "openNow": "Ouvert",
+    "closed": "Fermé",
+    "closedLine": "Fermé aujourd'hui",
     "until": "Jusqu'à",
-    "closedShort": "Fermé",
-    "languageSelectLabel": "Choisir la langue",
-    "phoneOrderLabel": "Commander par téléphone",
-    "call": "Appeler"
+    "today": "Aujourd'hui",
+    "call": "Appeler",
+    "menuLabel": "Carte",
+    "hoursLabel": "Horaires & Adresse",
+    "questionsLabel": "Questions",
+    "walkin": "Sur place",
+    "takeaway": "À emporter",
+    "previewBadge": "Aperçu",
+    "skipToMain": "Aller au contenu principal",
+    "primaryNavLabel": "Navigation principale",
+    "openMenuLabel": "Ouvrir le menu",
+    "directionsLink": "Itinéraire",
+    "city": "Bienne/Biel",
+    "languageSelectLabel": "Choisir la langue"
   },
+
   "days": {
-    "monday": "Lundi",
-    "tuesday": "Mardi",
-    "wednesday": "Mercredi",
-    "thursday": "Jeudi",
-    "friday": "Vendredi",
-    "saturday": "Samedi",
-    "sunday": "Dimanche"
+    "mon": "Lundi", "tue": "Mardi", "wed": "Mercredi", "thu": "Jeudi",
+    "fri": "Vendredi", "sat": "Samedi", "sun": "Dimanche", "closedShort": "Fermé"
   },
-  "statusStrip": {
-    "openTime": "20h00",
-    "services": "<b>Sur place</b> · À emporter"
-  },
-  "header": {
-    "ctaLabel": "Appeler · 032 341 32 41"
-  },
-  "headerNav": {
-    "menu": "Carte",
-    "hoursAndLocation": "Horaires & adresse",
-    "questions": "Questions"
-  },
+
   "hero": {
     "eyebrow": "Cuisine de rue anatolienne · Sur place & à emporter",
     "headlineBefore": "Un comptoir pour ",
     "headlineItalic": "l'épice,",
     "headlineAfter": " la fumée & le pain chaud.",
-    "subhead": "Döner taillé à la main, brochettes grillées au charbon de bois et pain sortant du four — du lundi au vendredi à un coin de Bienne. Ouvert de 08h00 à 20h00.",
+    "subhead": "Döner taillé à la main, brochettes au charbon de bois, pain sorti du feu — du lundi au vendredi, à un coin de Biel/Bienne. Ouvert de 08h à 20h.",
     "ctaPrimary": "Appeler · 032 341 32 41",
+    "ctaPrimaryAria": "Appeler Alibaba 47 pour commander",
     "ctaSecondary": "Voir la carte",
-    "trustNeighborhood": "Bienne",
-    "trustOpenDays": "Lun–Ven 08h00–20h00",
-    "trustVeg": "Options végétariennes",
-    "imageAlt": "Brochettes de poulet sur charbon",
-    "caption": "Du grill"
+    "trustLineLabel": "Lun–Ven 08h00–20h00 · Options végétariennes"
   },
+
   "menu": {
-    "eyebrow": "Carte",
     "sectionTitle": "Préparé à la commande, sorti du tournebroche.",
-    "titleBefore": "Préparé à la commande, ",
-    "titleItalic": "sorti du tournebroche.",
-    "intro": "Trois stations en cuisine — le tournebroche devant, le grill au charbon derrière et le comptoir mezze à partager. La plupart des assiettes quittent le comptoir en moins de dix minutes.",
-    "sampleNoticeLabel": "Carte d'aperçu",
-    "sampleNoticeText": "Les plats présentés représentent l'offre habituelle. Plats du jour, prix et disponibilité saisonnière à confirmer au comptoir ou par téléphone (032 341 32 41)."
+    "intro": "Trois postes en cuisine — le tournebroche à l'avant, le grill au charbon derrière, le comptoir mezze à partager. La plupart des plats quittent le comptoir en moins de dix minutes.",
+    "sampleNotice": "Carte d'aperçu. Les plats, prix et items saisonniers actuels se confirment au comptoir ou par téléphone (032 341 32 41).",
+    "footnote": "",
+    "categories": [
+      {
+        "title": "Du tournebroche",
+        "subtitle": "Döner · Dürüm",
+        "tag": "01 · Du tournebroche",
+        "intro": "Le centre de la cuisine. Le tournebroche tourne du matin au soir, la viande est tranchée à la commande, le pain est réchauffé quelques secondes avant d'être servi.",
+        "photoAlt": "Tournebroche à kebab tranché à la commande",
+        "items": [
+          { "name": "Döner dans le pain", "subtitle": "yufka · plié",      "description": "Kebab tranché dans un yufka plié, salade, oignon, sauce yaourt-ail.", "price": "CHF 11", "heat": 1, "extraHot": false, "badgeKey": "",      "photoUrl": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=700&q=85", "photoAlt": "Döner dans le pain avec frites" },
+          { "name": "Dürüm",              "subtitle": "enroulé serré",     "description": "Wrap enroulé serré — kebab, salade, harissa, oignon.",                  "price": "CHF 13", "heat": 1, "extraHot": false, "badgeKey": "",      "photoUrl": "https://images.unsplash.com/photo-1542528180-a1208c5169a5?w=700&q=85", "photoAlt": "Dürüm turc" }
+        ]
+      },
+      {
+        "title": "Du grill",
+        "subtitle": "Şiş · Adana · Karışık",
+        "tag": "02 · Du grill",
+        "intro": "Brochettes cuites sur braises à la commande. Servies avec riz ou boulgour, salade, et un fin pain plat turc pour saucer.",
+        "photoAlt": "Grill du jour avec brochettes",
+        "items": [
+          { "name": "Brochette Adana",    "subtitle": "agneau haché à la main",      "description": "Agneau haché à la main, épicé · grillé au charbon · avec riz.",                  "price": "CHF 19", "heat": 3, "extraHot": true,  "badgeKey": "spicy",     "photoUrl": "https://images.unsplash.com/photo-1561651823-34feb02250e4?w=700&q=85", "photoAlt": "Brochettes Adana au charbon" },
+          { "name": "Karışık ızgara",     "subtitle": "grillade mixte",              "description": "Grillade mixte — poulet, agneau, poivrons, trois sauces. Pour deux personnes.", "price": "CHF 32", "heat": 2, "extraHot": false, "badgeKey": "servesTwo", "photoUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=85", "photoAlt": "Assiette de grillade mixte" }
+        ]
+      },
+      {
+        "title": "Mezze & accompagnements",
+        "subtitle": "Hummus · salatalar · cacık",
+        "tag": "03 · Mezze",
+        "intro": "Trempettes froides, salades d'accompagnement, frites coupées à la main. À partager à table ou pour compléter une boîte à emporter. Végétarien par défaut.",
+        "photoAlt": "Houmous avec pita et persil",
+        "items": [
+          { "name": "Houmous & pita",     "subtitle": "pois chiche & tahin",  "description": "Purée de pois chiche au tahin et citron, lamelles de pita chaud, huile d'olive.", "price": "CHF 9", "heat": 0, "extraHot": false, "badgeKey": "vegetarian", "photoUrl": "https://images.pexels.com/photos/1618898/pexels-photo-1618898.jpeg?auto=compress&cs=tinysrgb&w=700", "photoAlt": "Houmous avec pita" },
+          { "name": "Salade du jardin",   "subtitle": "végan tel quel",       "description": "Tomate, concombre, persil, oignon rouge, citron — végan tel quel.",                "price": "CHF 6", "heat": 0, "extraHot": false, "badgeKey": "vegan",      "photoUrl": "https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=700", "photoAlt": "Salade du jardin" }
+        ]
+      }
+    ]
   },
-  "menuCategories": {
-    "kebabs": {
-      "title": "Du tournebroche",
-      "subtitle": "Döner · Dürüm",
-      "intro": "Le centre de la cuisine. Le tournebroche tourne du matin au soir, la viande est tranchée à la commande, le pain réchauffé quelques secondes avant d'être servi."
-    },
-    "grill": {
-      "title": "Du grill",
-      "subtitle": "Şiş · Adana · Karışık",
-      "intro": "Brochettes cuites à la commande sur des braises ardentes. Servies avec riz ou boulgour, salade et un fin pain plat turc."
-    },
-    "mezze": {
-      "title": "Mezze & accompagnements",
-      "subtitle": "Houmous · salatalar · cacık",
-      "intro": "Trempettes froides, salades d'accompagnement, frites coupées à la main. À partager à table ou en complément de la boîte à emporter. Végétarien par défaut."
-    }
-  },
-  "dishes": {
-    "heatLabel": "Piquant",
-    "badges": {
-      "vegetarian": "Végétarien",
-      "vegan": "Végétalien",
-      "spicy": "Épicé",
-      "servesTwo": "Pour 2",
-      "houseFavourite": "Spécialité maison",
-      "boneIn": "Avec os",
-      "glutenFree": "Sans gluten"
-    },
-    "doner": {
-      "name": "Döner dans le pain",
-      "subtitle": "Yufka · plié",
-      "description": "Kebab tranché dans un yufka plié avec salade, oignons et sauce yaourt-ail."
-    },
-    "durum": {
-      "name": "Dürüm",
-      "subtitle": "roulé serré",
-      "description": "Wrap roulé serré — kebab, salade, pâte, oignons."
-    },
-    "adana": {
-      "name": "Brochette Adana",
-      "subtitle": "agneau haché à la main",
-      "description": "Agneau haché à la main, épicé · grillé au charbon · avec riz."
-    },
-    "karisik": {
-      "name": "Karışık ızgara",
-      "subtitle": "grill mixte",
-      "description": "Grill mixte — poulet, agneau, poivrons, trois sauces. Pour deux personnes."
-    },
-    "hummus": {
-      "name": "Houmous & pita",
-      "subtitle": "pois chiche & tahin",
-      "description": "Purée de pois chiches au tahin et citron, lamelles de pita chaud, huile d'olive."
-    },
-    "salat": {
-      "name": "Salade du jardin",
-      "subtitle": "végétalienne telle quelle",
-      "description": "Tomate, concombre, persil, oignon rouge, citron — végétalienne telle quelle."
-    }
-  },
+
+  "whyChooseUs": { "sectionTitle": "", "items": [] },
+
   "reviews": {
-    "eyebrow": "Voix",
-    "sectionTitle": "Ce que disent les clients.",
-    "titleBefore": "Ce que disent ",
-    "titleItalic": "les clients.",
+    "sectionTitle": "Ce que les gens disent.",
+    "quotes": [],
     "summaryLine": "",
-    "summarySuffix": "avis",
     "readAllLabel": "Voir sur Google"
   },
+
   "hours": {
-    "eyebrow": "Visite",
     "sectionTitle": "Horaires & adresse.",
-    "titleBefore": "Horaires & ",
-    "titleItalic": "adresse.",
     "hoursHeading": "Horaires de cuisine",
-    "hoursSubheading": "Dernière commande 19h30",
-    "kitchenHoursTitle": "Horaires de cuisine",
-    "kitchenHoursSub": "Dernière commande 19h30",
+    "lateNightLabel": "",
     "todayLabel": "Aujourd'hui",
     "locationHeading": "Où nous sommes",
     "directionsLabel": "Itinéraire",
-    "directions": "Itinéraire",
     "mapTitle": "Carte : Alibaba 47, General-Dufour-Strasse 47, 2502 Bienne"
   },
+
   "faq": {
-    "eyebrow": "Questions fréquentes",
-    "sectionTitle": "Avant de venir.",
-    "titleBefore": "Avant de ",
-    "titleItalic": "venir."
+    "sectionTitle": "Avant de passer.",
+    "items": [
+      { "q": "Où êtes-vous exactement ?",                          "a": "General-Dufour-Strasse 47, 2502 Biel/Bienne. À deux minutes à pied de la gare de Bienne, sur la General-Dufour-Strasse." },
+      { "q": "Prenez-vous des réservations ?",                    "a": "Sur place suffit pour le comptoir. Pour les grands groupes, le mieux est d'appeler directement le 032 341 32 41." },
+      { "q": "Puis-je commander par téléphone à emporter ?",      "a": "Oui — appelez le 032 341 32 41 et votre commande vous attendra chaude au comptoir." },
+      { "q": "Livrez-vous aussi ?",                                "a": "Demandez directement au 032 341 32 41 si une livraison dans le quartier est possible." },
+      { "q": "Quels moyens de paiement acceptez-vous ?",          "a": "Les moyens de paiement peuvent varier — appelez le 032 341 32 41 pour confirmer TWINT ou la carte avant votre passage." },
+      { "q": "Quelles langues parlez-vous au comptoir ?",         "a": "Allemand et turc sont parlés ; pour le français et l'anglais, demandez sur place." }
+    ]
   },
-  "faqItems": {
-    "location": {
-      "q": "Où êtes-vous exactement ?",
-      "a": "General-Dufour-Strasse 47, 2502 Bienne. À deux minutes à pied de la gare de Bienne le long de la General-Dufour-Strasse."
-    },
-    "reservations": {
-      "q": "Acceptez-vous les réservations ?",
-      "a": "Sur place suffit pour le comptoir. Pour les grands groupes, mieux vaut appeler directement au 032 341 32 41."
-    },
-    "phoneOrder": {
-      "q": "Puis-je commander par téléphone à emporter ?",
-      "a": "Oui — appelez le 032 341 32 41, votre commande vous attend au chaud au comptoir."
-    },
-    "delivery": {
-      "q": "Livrez-vous aussi ?",
-      "a": "Veuillez appeler directement au 032 341 32 41 pour demander si une livraison dans le quartier est possible."
-    },
-    "payment": {
-      "q": "Quels moyens de paiement acceptez-vous ?",
-      "a": "Les options de paiement peuvent varier — mieux vaut appeler au 032 341 32 41 pour confirmer TWINT ou la carte bancaire."
-    },
-    "languages": {
-      "q": "Quelles langues parlez-vous au comptoir ?",
-      "a": "L'allemand et le turc sont parlés ; pour le français et l'anglais, demandez sur place."
-    }
-  },
+
+  "finalCta": { "heading": "", "body": "", "ctaPrimary": "", "ctaSecondary": "", "ctaWhatsapp": "" },
+
   "footer": {
-    "conceptNotice": "Aperçu de site pour Alibaba 47 — pas encore approuvé par le propriétaire. Photos d'exemple.",
-    "bottomBand": "Alibaba 47, Inh. A. Dündar · General-Dufour-Strasse 47 · 2502 Bienne",
-    "about": "Kebap, grill et mezze à un coin de Bienne — du lundi au vendredi, sur place ou commande téléphonique.",
-    "aboutLine": "Kebap, grill et mezze à un coin de Bienne.",
-    "visitLabel": "Visite",
-    "menuLabel": "Carte",
-    "followLabel": "Suivre",
+    "addressLabel": "Visite",
+    "phoneLabel": "Téléphone",
+    "hoursLabel": "Horaires",
+    "socialLabel": "Suivre",
     "googleReviewsLabel": "Voir sur Google",
     "facebookLabel": "Facebook",
     "instagramLabel": "Instagram",
-    "copyright": "© 2026 Alibaba 47, Inh. A. Dündar. Tous droits réservés.",
-    "conceptTag": "Aperçu de site pour Alibaba 47"
+    "conceptNotice": "Aperçu de site pour Alibaba 47 — pas encore validé par le propriétaire. Les photos présentées sont des exemples.",
+    "bottomBand": "Alibaba 47, Inh. A. Dündar · General-Dufour-Strasse 47 · 2502 Bienne"
   },
-  "footerMenu": {
-    "kebabs": "Du tournebroche",
-    "grill": "Du grill",
-    "mezze": "Mezze & accompagnements"
-  }
+
+  "dish": { "heat": "Piquant" },
+
+  "heroImageAlt": "Brochettes de poulet au charbon avec fumée"
 }
