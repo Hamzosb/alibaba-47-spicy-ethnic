@@ -8,6 +8,43 @@
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
   </head>
   <body>
+    <!--
+      OAuth fragment handler. Runs BEFORE Decap loads. If the OAuth proxy
+      fell back to a URL-fragment redirect (because window.opener.postMessage
+      didn't reach Decap), the fragment carries the access token. We write it
+      into Decap's localStorage entry so Decap auto-logs-in on load.
+
+      Two key names because Decap renamed itself from Netlify CMS:
+      - decap-cms-user (current)
+      - netlify-cms-user (legacy compat for older Decap builds)
+    -->
+    <script>
+      (function () {
+        var hash = window.location.hash || '';
+        var tokenMatch = hash.match(/[#&]decap_token=([^&]+)/);
+        var errorMatch = hash.match(/[#&]decap_oauth_error=([^&]+)/);
+        if (tokenMatch) {
+          var token = decodeURIComponent(tokenMatch[1]);
+          var user = { token: token, backendName: 'github' };
+          try {
+            localStorage.setItem('decap-cms-user', JSON.stringify(user));
+            localStorage.setItem('netlify-cms-user', JSON.stringify(user));
+          } catch (_) {}
+          // Strip the token from the URL so it doesn't sit in browser history.
+          history.replaceState(null, '', window.location.pathname);
+        } else if (errorMatch) {
+          // Surface the OAuth error to the user before Decap obscures it.
+          var msg = decodeURIComponent(errorMatch[1]);
+          document.addEventListener('DOMContentLoaded', function () {
+            var el = document.createElement('div');
+            el.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#b23a2e;color:#fff;padding:1rem;font-family:system-ui;z-index:9999;';
+            el.textContent = 'OAuth error: ' + msg;
+            document.body.appendChild(el);
+          });
+        }
+      })();
+    </script>
+
     <!-- Decap CMS bootstrap. Pinned to a specific version to avoid the
          unpkg redirect dance + transient 503s when caret-resolution races
          in the browser. Bump intentionally; do not auto-track latest. -->
