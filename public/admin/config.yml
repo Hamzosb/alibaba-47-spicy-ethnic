@@ -20,8 +20,12 @@ backend:
   name: github
   repo: Hamzosb/alibaba-47-spicy-ethnic
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  # Self-hosted OAuth proxy at kernel/cms/oauth-proxy/. The proxy holds the
+  # client_secret and exchanges the OAuth code for an access token, then
+  # postMessages it back to Decap. The default api.netlify.com proxy only
+  # works for Netlify-hosted sites; ours are on Vercel.
+  base_url: https://decap-oauth-proxy-omega.vercel.app
+  auth_endpoint: api/auth
   app_id: Ov23lippsBM3RL1DTqbH
 
 # Local dev: run `npx decap-server` in the project root, then visit /admin
